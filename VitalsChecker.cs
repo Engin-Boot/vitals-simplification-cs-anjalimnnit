@@ -13,7 +13,7 @@ class VitalsChecker
     static bool checkspo2(float spo2)
     { 
          if(spo2 < 90)
-         return true
+         return true;
          return false;
         
     }static bool checkrespRate(float respRate)
