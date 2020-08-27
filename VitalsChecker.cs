@@ -3,7 +3,7 @@ using System;
 class VitalsChecker
 {
      static bool vitalsAreOk(float bpm, float spo2, float respRate) {
-       return !(checkbpm(bpm)&&checkspo2(spo2)&&checkrespRate(respRate);
+       return !(checkbpm(bpm)&&checkspo2(spo2)&&checkrespRate(respRate));
     }
     static bool checkbpm(float bpm)
     { 
