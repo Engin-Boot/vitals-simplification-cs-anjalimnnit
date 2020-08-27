@@ -9,11 +9,11 @@ class VitalsChecker
     { 
          if(bpm < 70)
          {  
-             console.WriteLine("Beat per heart is less than 70")
+             console.WriteLine("Beat per heart is less than 70");
              return true;
          } 
          if( bpm > 150)
-    {   console.WriteLine("Beat per heart is greater than 150")
+    {   console.WriteLine("Beat per heart is greater than 150");
         return true;
         
     }
