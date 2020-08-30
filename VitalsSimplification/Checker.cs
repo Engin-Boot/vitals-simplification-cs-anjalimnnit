@@ -23,7 +23,7 @@ namespace VitalsSimplification
                 Environment.Exit(1);
             }
         }
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             ExpectTrue(VitalsSimplification.VitalsChecker.VitalsAreOk(100, 95, 60)); //(1,1,1,)
             ExpectFalse(VitalsSimplification.VitalsChecker.VitalsAreOk(40, 91, 92)); //(0,1,1)
@@ -35,7 +35,7 @@ namespace VitalsSimplification
             ExpectTrue(VitalsSimplification.VitalsChecker.VitalsAreOk(150, 90, 30));  //(1,1,1)
 
             Console.WriteLine("All ok");
-            Console.ReadKey();
+            return 0;
            
         }
     }
