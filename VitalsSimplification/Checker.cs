@@ -33,6 +33,8 @@ namespace VitalsSimplification
             ExpectFalse(VitalsSimplification.VitalsChecker.VitalsAreOk(80, 92, 100)); //(1,1,0)
             ExpectTrue(VitalsSimplification.VitalsChecker.VitalsAreOk(70, 92, 95));  //(1,1,1)
             ExpectTrue(VitalsSimplification.VitalsChecker.VitalsAreOk(150, 90, 30));  //(1,1,1)
+            VitalSimplification.RangeChecker range = new VitalSimplification.RangeChecker("Bpm", 70, 150);
+            ExpectFalse(range.CheckRange(66));
 
             Console.WriteLine("All ok");
             return 0;
