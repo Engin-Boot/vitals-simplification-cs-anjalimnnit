@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VitalSimplification
+namespace VitalsSimplification
 {
     class RangeChecker
     {
@@ -12,7 +12,7 @@ namespace VitalSimplification
         private float upperLimit;
         private string name;
 
-       public RangeChecker(String name, float lowerLimit, float upperLimit)
+       public RangeChecker(String name, float lowerLimit, float upperLimit=float.MaxValue)
         {
             this.name = name;
             this.lowerLimit = lowerLimit;
@@ -24,13 +24,13 @@ namespace VitalSimplification
 
             if (input < this.lowerLimit)
             {
-                VitalSimplification.Alert.Display(this.name, "low");
+                VitalsSimplification.Alert.Display(this.name, "low");
                 return false;
 
             }
             if (input > this.upperLimit)
             {
-                VitalSimplification.Alert.Display(this.name, "high");
+                VitalsSimplification.Alert.Display(this.name, "high");
                 return false;
             }
             return true;

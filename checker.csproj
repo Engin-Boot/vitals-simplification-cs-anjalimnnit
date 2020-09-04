@@ -3,9 +3,6 @@
     <Compile Include="VitalsSimplification/Checker.cs"/>
     <Compile Include="VitalsSimplification/VitalsChecker.cs"/>
     <Compile Include="VitalsSimplification/Alert.cs"/>
-    <Compile Include="VitalsSimplification/BpmChecker.cs"/>
-    <Compile Include="VitalsSimplification/RespRateChecker.cs"/>
-    <Compile Include="VitalsSimplification/Spo2Checker.cs"/>
     <Compile Include="VitalsSimplification/RangeChecker.cs"/>
 
   </ItemGroup>

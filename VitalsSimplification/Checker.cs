@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace VitalsSimplification
 {
-    class Program
+    class Checker
     {
         static void ExpectTrue(bool expression)
         {
@@ -23,21 +23,28 @@ namespace VitalsSimplification
                 Environment.Exit(1);
             }
         }
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
-            ExpectTrue(VitalsSimplification.VitalsChecker.VitalsAreOk(100, 95, 60)); //(1,1,1,)
-            ExpectFalse(VitalsSimplification.VitalsChecker.VitalsAreOk(40, 91, 92)); //(0,1,1)
-            ExpectFalse(VitalsSimplification.VitalsChecker.VitalsAreOk(151, 92, 94)); //(0,1,1)
-            ExpectFalse(VitalsSimplification.VitalsChecker.VitalsAreOk(72, 80, 92));  //(1,0,1)
-            ExpectFalse(VitalsSimplification.VitalsChecker.VitalsAreOk(80, 92, 20)); //(1,1,0)
-            ExpectFalse(VitalsSimplification.VitalsChecker.VitalsAreOk(80, 92, 100)); //(1,1,0)
-            ExpectTrue(VitalsSimplification.VitalsChecker.VitalsAreOk(70, 92, 95));  //(1,1,1)
-            ExpectTrue(VitalsSimplification.VitalsChecker.VitalsAreOk(150, 90, 30));  //(1,1,1)
-            VitalSimplification.RangeChecker range = new VitalSimplification.RangeChecker("Bpm", 70, 150);
-            ExpectFalse(range.CheckRange(66));
-
-            Console.WriteLine("All ok");
-            return 0;
+            RangeChecker BpmRange = new VitalsSimplification.RangeChecker("Bpm", 70, 150);
+        /*    ExpectFalse(BpmRange.CheckRange(66));
+            ExpectFalse(BpmRange.CheckRange(160));
+            ExpectTrue(BpmRange.CheckRange(75));*/
+            RangeChecker RespRateRange = new VitalsSimplification.RangeChecker("RespRate", 30, 95);
+         /*   ExpectFalse(RespRateRange.CheckRange(25));
+            ExpectFalse(RespRateRange.CheckRange(100));
+            ExpectTrue(RespRateRange.CheckRange(45)); */
+            RangeChecker Spo2Range = new VitalsSimplification.RangeChecker("Spo2", 90);
+         /*   ExpectFalse(Spo2Range.CheckRange(85));
+            ExpectTrue(Spo2Range.CheckRange(100)); */
+            ExpectTrue(VitalsChecker.VitalsAreOk(BpmRange.CheckRange(71), RespRateRange.CheckRange(40), Spo2Range.CheckRange(97)));  //(1,1,1)
+            Console.WriteLine("Vitals are Ok");
+            ExpectFalse(VitalsChecker.VitalsAreOk(BpmRange.CheckRange(69), RespRateRange.CheckRange(40), Spo2Range.CheckRange(97)));  //(0,1,1)
+            ExpectFalse(VitalsChecker.VitalsAreOk(BpmRange.CheckRange(152), RespRateRange.CheckRange(40), Spo2Range.CheckRange(97)));  //(0,1,1)
+            ExpectFalse(VitalsChecker.VitalsAreOk(BpmRange.CheckRange(71), RespRateRange.CheckRange(25), Spo2Range.CheckRange(97)));  //(1,0,1)
+            ExpectFalse(VitalsChecker.VitalsAreOk(BpmRange.CheckRange(71), RespRateRange.CheckRange(100), Spo2Range.CheckRange(97)));  //(1,0,1)
+            ExpectFalse(VitalsChecker.VitalsAreOk(BpmRange.CheckRange(80), RespRateRange.CheckRange(90), Spo2Range.CheckRange(80)));  //(1,1,0)
+            ExpectFalse(VitalsChecker.VitalsAreOk(BpmRange.CheckRange(69), RespRateRange.CheckRange(20), Spo2Range.CheckRange(80)));  //(0,0,0)
+            
            
         }
     }
